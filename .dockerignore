@@ -1,0 +1,7 @@
+**
+! ctp/ctp-sys/ctp/lib/*
+! target/debug/market
+! target/release/market
+! target/debug/position
+! target/release/position
+! docker/builder/entrypoint.sh

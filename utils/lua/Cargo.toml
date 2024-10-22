@@ -1,0 +1,25 @@
+[package]
+name = "abyss-lua"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+displaydoc = "0.2.4"
+mlua = { version = "0.9.4", features = [
+  "luajit",
+  "vendored",
+  "async",
+  "send",
+  "serialize",
+] }
+notify = "6.1"
+serde_json = "1.0"
+thiserror = "1.0"
+
+[dev-dependencies]
+anyhow = "1"
+criterion = "0.5"
+
+[[bench]]
+name = "lua"
+harness = false

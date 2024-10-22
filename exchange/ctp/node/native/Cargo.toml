@@ -1,0 +1,26 @@
+[package]
+name = "ctp-node"
+version = "0.1.0"
+authors = ["徐敏辉 <xuminhui_jia@126.com>"]
+description = "ctp node模块"
+edition = "2018"
+license = "UNLICENSED"
+build = "build.rs"
+exclude = ["artifacts.json", "index.node"]
+
+[lib]
+name = "ctp"
+crate-type = ["cdylib"]
+
+[dependencies]
+neon = "0.8"
+serde = "*"
+crossbeam = "*"
+log = "*"
+
+[dependencies.ctp]
+path = "../../"
+
+[build-dependencies]
+cc = "*"
+neon-build = "0.7"

@@ -1,0 +1,18 @@
+[Unit]
+Description=深渊进程 - 数据服务
+
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=~
+
+ExecStart=/opt/bin/catfish --cache-mb=64 data --web
+Restart=on-failure
+
+EnvironmentFile=-%h/.env
+KillMode=control-group
+
+[Install]
+WantedBy=multi-user.target

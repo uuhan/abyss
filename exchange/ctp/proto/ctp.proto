@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package ctp;
+
+service Ctp {
+  rpc version(VersionRequest) returns (VersionReply) {}
+
+  rpc req_qry_instrument(InstrumentRequest) returns (InstrumentReply) {}
+}
+
+message VersionRequest {}
+
+message VersionReply {
+  string version = 1;
+}
+
+message InstrumentRequest {
+  string name = 1;
+}
+
+message InstrumentReply {
+  string reply = 1;
+}

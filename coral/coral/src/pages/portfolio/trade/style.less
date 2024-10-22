@@ -1,0 +1,60 @@
+@import "~antd/es/style/themes/default.less";
+
+.container {
+
+:global(.ant-pro-page-container-children-content) {
+  margin: 0 !important;
+  overflow-x: hidden;
+}
+
+:global(.subject-footer) {
+  min-height: 44px;
+  :global(.ant-pro-footer-bar-right) {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
+}
+
+:global(.dropdown-group) {
+  span.anticon {
+    margin-left: 16px;
+    color: @text-color-secondary;
+    cursor: pointer;
+    transition: color 0.32s;
+    &:hover {
+      color: @text-color;
+    }
+  }
+}
+
+:global(.sales-type-radio) {
+  position: absolute;
+  top: 12px;
+  right: 54px;
+}
+
+:global(.config-button) {
+  position: fixed;
+  right: 10px;
+  bottom: 54px;
+  width: 44px;
+  height: 44px;
+}
+
+@media screen and (max-width: @screen-xs) {
+  :global(.subject-footer) {
+    min-height: 44px;
+    padding: 0 12px !important;
+    :global(.ant-pro-footer-bar-right) {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+    }
+  }
+}
+
+}
+

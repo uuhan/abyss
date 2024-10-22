@@ -1,0 +1,5 @@
+syntax = "proto3";
+
+package index;
+
+import public "ctp.proto";

@@ -1,0 +1,24 @@
+# https://www.freedesktop.org/software/systemd/man/systemd.unit.html
+
+[Unit]
+Description=深渊进程 - 趋势策略
+
+After=network-online.target
+Wants=network-online.target
+
+Conflicts=data-serve.service data-collect.service
+
+[Service]
+Type=simple
+WorkingDirectory=~
+
+ExecStart=/opt/bin/catfish --cache-mb=64 --market-session=1 cta
+Restart=always
+
+EnvironmentFile=-%h/.env
+KillMode=control-group
+
+OOMScoreAdjust=-1000
+
+[Install]
+WantedBy=multi-user.target

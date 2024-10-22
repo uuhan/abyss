@@ -1,0 +1,152 @@
+@import '~antd/es/style/themes/default.less';
+@import './utils/utils.less';
+
+.skeleton {
+  min-height: 400px;
+}
+
+.coverCardList {
+  .card {
+    :global {
+      .ant-card-meta-title {
+        margin-bottom: 4px;
+        & > a {
+          display: inline-block;
+          max-width: 100%;
+          color: @heading-color;
+        }
+      }
+      .ant-card-meta-description {
+        height: 44px;
+        overflow: hidden;
+        line-height: 22px;
+      }
+    }
+
+    &:hover {
+      :global {
+        .ant-card-meta-title > a {
+          color: @primary-color;
+        }
+      }
+    }
+  }
+
+  .cardItemContent {
+    display: flex;
+    height: 20px;
+    margin-top: 16px;
+    margin-bottom: -4px;
+    line-height: 20px;
+    & > span {
+      flex: 1;
+      color: @text-color-secondary;
+      font-size: 12px;
+    }
+    .avatarList {
+      flex: 0 1 auto;
+    }
+  }
+  .cardList {
+    margin-top: 24px;
+  }
+
+  :global {
+    .ant-list .ant-list-item-content-single {
+      max-width: 100%;
+    }
+  }
+}
+
+.main {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  background-color: @menu-bg;
+  .left {
+    width: 224px;
+    border-right: @border-width-base @border-style-base @border-color-split;
+    :global {
+      .ant-menu-inline {
+        border: none;
+      }
+      .ant-menu:not(.ant-menu-horizontal) .ant-menu-item-selected {
+        font-weight: bold;
+      }
+    }
+  }
+  .right {
+    flex: 1;
+    padding: 8px 0;
+    .title {
+      margin-left: 8px;
+      color: @heading-color;
+      font-weight: 500;
+      font-size: 20px;
+      line-height: 28px;
+    }
+  }
+  :global {
+    .ant-list-split .ant-list-item:last-child {
+      border-bottom: 1px solid @border-color-split;
+    }
+    .ant-list-item {
+      padding-top: 14px;
+      padding-bottom: 14px;
+    }
+  }
+}
+:global {
+  .ant-list-item-meta {
+    // 账号绑定图标
+    .taobao {
+      display: block;
+      color: #ff4000;
+      font-size: 48px;
+      line-height: 48px;
+      border-radius: @border-radius-base;
+    }
+    .dingding {
+      margin: 2px;
+      padding: 6px;
+      color: #fff;
+      font-size: 32px;
+      line-height: 32px;
+      background-color: #2eabff;
+      border-radius: @border-radius-base;
+    }
+    .alipay {
+      color: #2eabff;
+      font-size: 48px;
+      line-height: 48px;
+      border-radius: @border-radius-base;
+    }
+  }
+
+  // 密码强度
+  font.strong {
+    color: @success-color;
+  }
+  font.medium {
+    color: @warning-color;
+  }
+  font.weak {
+    color: @error-color;
+  }
+}
+
+@media screen and (max-width: @screen-md) {
+  .main {
+    flex-direction: column;
+    .left {
+      width: 100%;
+      border: none;
+    }
+    .right {
+      margin-top: 12px;
+      padding: 0;
+    }
+  }
+}

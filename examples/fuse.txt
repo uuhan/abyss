@@ -1,0 +1,1 @@
+database insert --table strategy/fuse --key rb2401-pin --value rb2401,3,,,pin@3684:11:1

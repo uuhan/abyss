@@ -1,0 +1,18 @@
+{
+  "name": "ctp-node",
+  "version": "0.1.0",
+  "description": "ctp node模块",
+  "main": "lib/index.js",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "author": "xu <xuminhui_jia@126.com>",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "neon-cli": "^0.4.0"
+  },
+  "scripts": {
+    "install": "neon build"
+  }
+}

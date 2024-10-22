@@ -1,0 +1,34 @@
+[config]
+default_to_workspace = false
+
+[tasks.default]
+alias = "catfish"
+
+[tasks.clean]
+command = "cargo"
+args = ["clean"]
+
+[tasks.strip-bin]
+command = "strip"
+args = ["target/release/catfish"]
+
+[tasks.clean-shadows-rs]
+command = "cargo"
+args = ["clean", "--release", "--package", "shadow-rs"]
+
+[tasks.build-catfish]
+command = "cargo"
+args = ["build", "--release", "--package", "catfish", "--bin", "catfish"]
+
+[tasks.pre-build-catfish]
+dependencies = ["clean-shadows-rs"]
+
+[tasks.catfish]
+dependencies = ["pre-build-catfish", "build-catfish", "post-build-catfish"]
+
+[tasks.post-build-catfish]
+dependencies = ["strip-bin"]
+
+[tasks.check-catfish]
+command = "cargo"
+args = ["check", "-p", "catfish", "--bin", "catfish"]

@@ -1,0 +1,65 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+buildscript {
+    ext.versions = [
+            'compileSdk'          : 30,
+            'minSdk'              : 23,
+            'targetSdk'           : 30,
+            'kotlin'              : '1.5.30',
+            'room'                : '2.3.0',
+            'okhttp'              : '4.9.0',
+            'retrofit'            : '2.9.0',
+            'retrofitRxAdapter'   : '2.9.0',
+            'rxAndroid'           : '2.1.1',
+            'rxjava'              : '2.2.20',
+            'timber'              : '4.7.1',
+            'gson'                : '2.8.6',
+            'spark'               : '1.2.0',
+            'adapterDelegates'    : '4.3.0',
+            'currencyPicker'      : '1.2.1',
+            'lottie'              : '3.5.0',
+            'materialdate'        : '4.2.3',
+            'pageindicator'       : '1.0.3',
+            'picaso'              : '2.71828',
+            'picasoTransformation': '2.4.0',
+            'stetho'              : '1.5.1',
+            'junit'               : '4.13.1',
+            'kotlinter'           : '3.2.0',
+            'bottomNav'           : '2.0.4',
+            'firebaseCore'        : '18.0.0',
+            'firebasePerf'        : '19.0.10',
+            'firebaseCrashlytics' : '17.3.0',
+            'firebaseAnalytics'   : '18.0.0',
+            'leakcanary'          : '2.5',
+            'hilt'                : '2.28.3-alpha',
+    ]
+
+    repositories {
+        google()
+        jcenter()
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+    }
+
+    dependencies {
+        classpath 'com.android.tools.build:gradle:7.0.1'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:${versions.kotlin}"
+        classpath "com.google.dagger:hilt-android-gradle-plugin:${versions.hilt}"
+    }
+}
+
+allprojects {
+    repositories {
+        maven { url 'https://jitpack.io' }
+        google()
+        jcenter()
+
+        flatDir {
+          dirs "libs"
+        }
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}

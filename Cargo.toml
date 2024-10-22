@@ -1,0 +1,57 @@
+[workspace]
+resolver = "2"
+
+members = [
+  # core
+  "catfish",
+  "sailfish",
+  "turtle",
+  "kelp",
+
+  "exchange/ctp",
+  "exchange/ctp/ctp-sys",
+  # "exchange/xtp",
+  # "exchange/xtp/xtp-sys",
+
+  # common
+  "utils/common",
+  "utils/subscriber",
+  "utils/promise",
+  "utils/bouncer",
+  "utils/macros",
+  "utils/pagecache",
+  "utils/wait",
+  "utils/queue",
+  "utils/lua",
+
+  # app
+  # "app/src-tauri",
+]
+
+[profile.dev]
+panic = "unwind"
+
+[profile.release]
+debug = true
+opt-level = 3
+panic = "unwind"
+lto = "fat"
+codegen-units = 1
+
+[patch.crates-io]
+sled = { path = "./utils/sled" }
+tide-rustls = { path = "./utils/tide-rustls" }
+
+ctp = { path = "./exchange/ctp" }
+ctp-sys = { path = "./exchange/ctp/ctp-sys" }
+# xtp = { path = "./exchange/xtp" }
+# xtp-sys = { path = "./exchange/xtp/xtp-sys" }
+
+# abyss-pagecache = { path = "./utils/pagecache" }
+abyss-macros = { path = "./utils/macros" }
+abyss-common = { path = "./utils/common" }
+abyss-promise = { path = "./utils/promise" }
+abyss-subscriber = { path = "./utils/subscriber" }
+abyss-bouncer = { path = "./utils/bouncer" }
+abyss-wait = { path = "./utils/wait" }
+abyss-lua = { path = "./utils/lua" }

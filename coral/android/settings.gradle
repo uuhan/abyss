@@ -1,0 +1,3 @@
+include ':ctp'
+include ':app'
+rootProject.name = "coral"

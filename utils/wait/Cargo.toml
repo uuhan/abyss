@@ -1,0 +1,10 @@
+[package]
+name = "abyss-wait"
+version = "0.1.1"
+edition = "2021"
+
+[dependencies]
+parking_lot = "0.12"
+
+[dev-dependencies]
+futures-lite = "1"

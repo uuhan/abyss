@@ -1,0 +1,15 @@
+[package]
+name = "abyss-subscriber"
+version = "0.1.0"
+edition = "2018"
+description = "消息订阅, 抽取自sled代码"
+
+[dependencies]
+log = "*"
+parking_lot = "*"
+
+# utils
+abyss-promise = "0.2"
+
+[dev-dependencies]
+loom = { version = "0.7", features = ["futures", "checkpoint"] }

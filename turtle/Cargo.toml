@@ -1,0 +1,35 @@
+[package]
+name = "turtle"
+version = "0.1.0"
+authors = ["徐敏辉 <xuminhui_jia@126.com>"]
+edition = "2018"
+description = "abyss策略模块"
+publish = false
+
+[dependencies]
+simple_logger = "*"
+bincode = "*"
+rayon = "1.4"
+circular-queue = "0.2"
+statrs = "0.16"
+cassowary = "^0.3"
+log = "*"
+better-panic = "*"
+displaydoc = "*"
+crossbeam = "*"
+yata = "0.4"
+
+[dependencies.ctp]
+version = "1.0.0"
+
+[dependencies.sled]
+version = "^0.34"
+features = ["compression"]
+
+[dependencies.serde]
+version = "*"
+features = ["derive"]
+
+[dependencies.chrono]
+version = "^0.4"
+features = ["serde"]

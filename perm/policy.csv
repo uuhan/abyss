@@ -1,0 +1,4 @@
+p, admin , /*             , *
+p, nobody, /api/v1/login/*, *
+p, member, /api/*         , *
+p, member, /app/*         , *

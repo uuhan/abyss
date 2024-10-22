@@ -1,0 +1,93 @@
+on: [push, pull_request]
+
+name: ABYSS-CI
+
+jobs:
+  check:
+    name: Check & format & lints
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Checkout sources
+        uses: actions/checkout@v2
+
+      - name: Install nightly toolchain
+        uses: actions-rs/toolchain@v1
+        with:
+          profile: minimal
+          toolchain: nightly
+          override: true
+          components: rustfmt, clippy
+
+      - name: Run cargo check
+        uses: actions-rs/cargo@v1
+        with:
+          command: check
+
+      - name: Run cargo fmt
+        uses: actions-rs/cargo@v1
+        with:
+          command: fmt
+          args: --all -- --check
+
+      # - name: Run cargo clippy
+      #   uses: actions-rs/cargo@v1
+      #   with:
+      #     command: clippy
+          # args: -- -D warnings
+
+  # test:
+  #   name: Test suite
+  #   runs-on: ubuntu-20.04
+  #   steps:
+  #     - name: Checkout sources
+  #       uses: actions/checkout@v2
+  #       with:
+  #         submodules: true
+  #
+  #     - name: Install nightly toolchain
+  #       uses: actions-rs/toolchain@v1
+  #       with:
+  #         profile: minimal
+  #         toolchain: nightly
+  #         override: true
+  #
+  #     - name: Run cargo test
+  #       uses: actions-rs/cargo@v1
+  #       with:
+  #         command: test
+          # args: -p catfish
+
+  catfish:
+    name: Build catfish
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Checkout sources
+        uses: actions/checkout@v2
+
+      - run: cargo build --release -p catfish --bin catfish
+      - run: |
+          strip target/release/catfish
+
+      - name: Archive catfish
+        uses: actions/upload-artifact@v2
+        with:
+          name: catfish
+          path: target/release/catfish
+
+  # hairtail:
+  #   name: Build hairtail
+  #   runs-on: ubuntu-20.04
+  #   steps:
+  #     - name: Checkout sources
+  #       uses: actions/checkout@v2
+  #
+  #     - run: cargo build --release -p hairtail --bin hairtail
+  #     - run: |
+  #         strip target/release/hairtail
+  #
+  #     - name: Archive hairtail
+  #       uses: actions/upload-artifact@v2
+  #       with:
+  #         name: hairtail
+  #         path: target/release/hairtail
+  #

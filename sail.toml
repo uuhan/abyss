@@ -1,0 +1,17 @@
+[endpoints.grpc]
+tls = false
+address = "0.0.0.0:50051"
+ticks_address = "0.0.0.0:50054"
+
+[endpoints.prometheus]
+address = "0.0.0.0:9615"
+
+[endpoints.http]
+tls = true
+address = "0.0.0.0:50443"
+secret = ""
+assets = "./assets"
+
+[endpoints.http.admin]
+name = "admin"
+password = ""

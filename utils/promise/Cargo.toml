@@ -1,0 +1,19 @@
+[package]
+name = "abyss-promise"
+version = "0.2.0"
+edition = "2021"
+license = "MIT OR Apache-2.0"
+description = "[abyss] A simple promise implementation with adaptive threadpool support."
+
+[dependencies]
+log = "0.4"
+parking_lot = "0.12"
+crossbeam-channel = "0.5"
+lazy_static = "*"
+
+[dependencies.prometheus]
+version = "*"
+features = ["process"]
+
+[dev-dependencies]
+futures-lite = "2"

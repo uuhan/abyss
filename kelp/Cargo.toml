@@ -1,0 +1,28 @@
+[package]
+name = "kelp"
+version = "0.1.0"
+edition = "2021"
+publish = false
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+env_logger = "0.9.0"
+log = "0.4.14"
+crossbeam-channel = "0.5.2"
+
+[dependencies.nodex]
+version = "^0.2"
+features = ["v5"]
+
+[dependencies.ctp]
+version = "1.0.0"
+features = ["sync", "node"]
+
+[dependencies.abyss-promise]
+path = "../utils/promise"
+
+[features]
+default = []
+no-linkage = ["ctp/no-linkage"]
